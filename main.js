@@ -1,6 +1,8 @@
-const express = require("express");
+const express = require('express');
 const app = express();
 const sassMiddleware = require('node-sass-middleware');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const path = require('path');
 app.use(sassMiddleware({
