@@ -24,8 +24,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
 
-app.get('/',(req, res) => {
-    res.render('todo.ejs');
+app.get("/", (req, res) => {
+    TodoTask.find({}, (err, tasks) => {
+    res.render("todo.ejs", { todoTasks: tasks });
+    });
     });
 
     //  input test
