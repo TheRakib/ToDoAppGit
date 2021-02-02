@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const sassMiddleware = require('node-sass-middleware');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+
+const TodoTask = require("./models/TodoTask");
+
 dotenv.config();
 
 const path = require('path');
@@ -24,9 +28,26 @@ app.get('/',(req, res) => {
     res.render('todo.ejs');
     });
 
-    // input test
-    app.post('/',(req, res) => {
-        console.log(req.body);
-        });
+    //  input test
+    // app.post('/',(req, res) => {
+    //     console.log(req.body);
+    //     });
 
-app.listen(7700, () => console.log("Servern funkar!"));
+        app.post('/',async (req, res) => {
+            const todoTask = new TodoTask({
+            content: req.body.content
+            });
+            try {
+            await todoTask.save();
+            res.redirect("/");
+            } catch (err) {
+            res.redirect("/");
+            }
+            });
+
+        mongoose.set("useFindAndModify", false);
+        mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
+        console.log("Connected mongoDB!");
+        
+        app.listen(7700, () => console.log("Servern är igång"));
+        });  
