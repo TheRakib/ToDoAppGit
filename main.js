@@ -63,6 +63,14 @@ res.redirect("/");
 });
 });
 
+app.route("/remove/:id").get((req, res) => {
+    const id = req.params.id;
+    TodoTask.findByIdAndRemove(id, err => {
+    if (err) return res.send(500, err);
+    res.redirect("/");
+    });
+    });
+
         mongoose.set("useFindAndModify", false);
         mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
         console.log("Connected mongoDB!");
