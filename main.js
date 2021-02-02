@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 
+app.set("view engine", "ejs");
+
 app.get('/',(req, res) => {
-    res.send('TestTest!');
+    res.render('todo.ejs');
     });
 
 app.listen(7700, () => console.log("Servern funkar!"));
