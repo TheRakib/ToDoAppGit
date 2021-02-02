@@ -48,7 +48,7 @@ app.get("/", (req, res) => {
             });
 
         mongoose.set("useFindAndModify", false);
-        mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
+        mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
         console.log("Connected mongoDB!");
         
         app.listen(7700, () => console.log("Servern är igång"));
