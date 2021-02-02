@@ -47,6 +47,22 @@ app.get("/", (req, res) => {
             }
             });
 
+app
+.route("/edit/:id")
+.get((req, res) => {
+const id = req.params.id;
+TodoTask.find({}, (err, tasks) => {
+res.render("todoEdit.ejs", { todoTasks: tasks, idTask: id });
+});
+})
+.post((req, res) => {
+const id = req.params.id;
+TodoTask.findByIdAndUpdate(id, { content: req.body.content }, err => {
+if (err) return res.send(500, err);
+res.redirect("/");
+});
+});
+
         mongoose.set("useFindAndModify", false);
         mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
         console.log("Connected mongoDB!");
