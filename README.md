@@ -3,4 +3,3 @@
 3. npm i --save-dev nodemon
 4. npm i node-sass-middleware
 
-* node-sass sass/main.scss -o public/stylesheets/
