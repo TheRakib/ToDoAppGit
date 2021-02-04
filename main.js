@@ -1,11 +1,9 @@
 const express = require('express');
 const app = express();
-// const bodyParser = require("body-parser");
 const sassMiddleware = require('node-sass-middleware');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const router = require('./routes/todoRoute');
-const TodoTask = require('./models/TodoTask');
 
 dotenv.config();
 
@@ -20,7 +18,6 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/static", express.static("public"));
 app.use(express.urlencoded({ extended: true }));
-// app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/", router);
 app.set("view engine", "ejs");
 

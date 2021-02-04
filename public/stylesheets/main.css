@@ -27,7 +27,7 @@ div {
   flex-grow: 2; }
 
 .todo-list-item .edit-button, .remove-button, .fa-plus {
-  margin-right: 1%;
+  margin-right: 10px;
   cursor: pointer; }
 
 a:link, a:visited, a:hover {
