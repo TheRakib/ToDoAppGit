@@ -1,0 +1,43 @@
+body {
+  display: flex;
+  background: black;
+  color: white;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif; }
+
+.todo-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  align-items: center;
+  padding-bottom: 2%; }
+
+.todo-list-item {
+  width: 50%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  background: black;
+  display: flex;
+  flex-direction: row; }
+
+div {
+  flex-grow: 2; }
+
+.todo-list-item .edit-button, .remove-button, .fa-plus {
+  margin-right: 10px;
+  cursor: pointer; }
+
+a:link, a:visited, a:hover {
+  color: white; }
+
+.todo-list-item .cancel-button, .finish-button {
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 5px;
+  background-color: grey;
+  margin-left: 5px; }
