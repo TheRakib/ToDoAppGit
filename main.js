@@ -22,7 +22,8 @@ app.use("/", router);
 app.set("view engine", "ejs");
 
         mongoose.set("useFindAndModify", false);
-        mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+        mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+            // fånga error innan man kopplas vidare till appen 
         console.log("Connected mongoDB!");
         
         app.listen(7700, () => console.log("Servern är igång"));
